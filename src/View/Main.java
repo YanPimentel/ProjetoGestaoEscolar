@@ -1,8 +1,4 @@
 package View;
-
-
-
-
 import Entites.Aluno;
 import Entites.Disciplina;
 import Entites.Professor;
@@ -11,7 +7,6 @@ import Services.AlunoService;
 import Services.DisciplinaService;
 import Services.ProfessorService;
 import Services.TurmaService;
-
 import java.util.Scanner;
 
 public class Main {
