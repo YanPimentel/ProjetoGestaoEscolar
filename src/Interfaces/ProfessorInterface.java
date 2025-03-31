@@ -1,8 +1,4 @@
 package Interfaces;
-
-//public interface RepositorioProfessorInterface {
-//}
-
 import Entites.Professor;
 import java.util.List;
 

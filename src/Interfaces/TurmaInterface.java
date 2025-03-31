@@ -1,7 +1,5 @@
 package Interfaces;
-//
-//public interface RepositorioTurmaInterface {
-//}
+
 
 import Entites.Turma;
 import java.util.List;
