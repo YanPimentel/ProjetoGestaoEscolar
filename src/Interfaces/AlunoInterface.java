@@ -26,4 +26,10 @@ public interface AlunoInterface {
     void atualizar(Aluno aluno);
     void remover(int id);
     List<Aluno> listar();
+
+    // Metodo criado para validar o nome do aluno ( para que ele não digite numeros)
+    boolean validarNome(String nome);
+
+
+
 }

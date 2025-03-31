@@ -38,7 +38,13 @@ public class AlunoService implements AlunoInterface {
 
     @Override
     public void cadastrar(Aluno aluno) {
+        if (!validarNome(aluno.getNome())) {
+            System.out.println("Erro: O nome do aluno não pode conter números.");
+            return;
+        }
+
         alunoRepositorio.salvar(aluno);
+        System.out.println("Aluno cadastrado com sucesso!");
     }
 
     @Override
@@ -55,6 +61,16 @@ public class AlunoService implements AlunoInterface {
     public List<Aluno> listar() {
         return alunoRepositorio.listar();
     }
+
+    @Override
+    public boolean validarNome(String nome) {
+        return !nome.matches(".*\\d.*"); // Retorna falso se houver números no nome
+        // Nome Matches verifica se a string NOME contem pelo menos um número, se tiver o metodo matches
+        // Vai retornar verdadeiro mas como tem o sinal de (!) que inverte o valor para falso, ele impede o cadastro.
+        //  Se o usuario nao digitar nenhum numero e digitar o nome certinho ai o metodo retorna true, e consegue realizar o cadastro.
+    }
+
+
 }
 
 
