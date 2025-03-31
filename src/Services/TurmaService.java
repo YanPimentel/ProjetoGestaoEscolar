@@ -1,12 +1,4 @@
 package Services;
-
-//public interface TurmaService {
-//
-//
-//
-//}
-
-
 import Entites.Turma;
 import Interfaces.TurmaInterface;
 import Repository.ITurmaRepositorio;
