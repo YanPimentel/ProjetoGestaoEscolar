@@ -28,7 +28,8 @@ public class Menu {
 
     public void exibirMenu() {
         while (true) {
-            System.out.println("\n--- Menu Principal ---");
+            System.out.println("\n--- \uD83C\uDFEB BEM VINDO \uD83C\uDFEB ---");
+            System.out.println("⬇\uFE0FESCOLHA UMA DAS OPÇÕES ABAIXO⬇\uFE0F");
             System.out.println("1. Adicionar Aluno");
             System.out.println("2. Adicionar Professor");
             System.out.println("3. Adicionar Turma");
@@ -41,7 +42,11 @@ public class Menu {
             System.out.println("10. Editar Professor");
             System.out.println("11. Editar Turma");
             System.out.println("12. Editar Disciplina");
-            System.out.println("13. Sair");
+            System.out.println("13. Remover Aluno");
+            System.out.println("14. Remover Professor");
+            System.out.println("15. Remover Turma");
+            System.out.println("16. Remover Disciplina");
+            System.out.println("17. Sair");
             System.out.print("Escolha uma opção: ");
 
             if (!scanner.hasNextInt()) {
@@ -90,6 +95,18 @@ public class Menu {
                     editarDisciplina();
                     break;
                 case 13:
+                    removerAluno();
+                    break;
+                case 14:
+                    removerProfessor();
+                    break;
+                case 15:
+                    removerTurma();
+                    break;
+                case 16:
+                    removerDisciplina();
+                    break;
+                case 17:
                     System.out.println("Saindo...");
                     return;
                 default:
@@ -165,6 +182,29 @@ public class Menu {
 
     }
 
+    //Excluir
+    private void removerAluno() {
+        System.out.print("Digite o nome do aluno a ser removido: ");
+        String nome = scanner.nextLine();
+
+        Aluno alunoEncontrado = null;
+        for (Aluno aluno : repositorioAlunos.listar()) {
+            if (aluno.getNome().equalsIgnoreCase(nome)) {
+                alunoEncontrado = aluno;
+                break;
+            }
+        }
+
+        if (alunoEncontrado == null) {
+            System.out.println("Aluno não encontrado!");
+            return;
+        }
+
+        // Remover o aluno do repositório
+        repositorioAlunos.remover(alunoEncontrado);
+        System.out.println("Aluno " + alunoEncontrado.getNome() + " removido com sucesso!");
+    }
+
 
     private void adicionarProfessor() {
         System.out.println("Nome do professor: ");
@@ -221,6 +261,29 @@ public class Menu {
 
     }
 
+    // Metodo para remover professor
+    private void removerProfessor() {
+        System.out.print("Digite o nome do professor a ser removido: ");
+        String nome = scanner.nextLine();
+
+        Professor professorEncontrado = null;
+        for (Professor professor : repositorioProfessor.listar()) {
+            if (professor.getNome().equalsIgnoreCase(nome)) {
+                professorEncontrado = professor;
+                break;
+            }
+        }
+
+        if (professorEncontrado == null) {
+            System.out.println("Professor não encontrado!");
+            return;
+        }
+
+        // Remover o professor do repositório
+        repositorioProfessor.remover(professorEncontrado);
+        System.out.println("Professor " + professorEncontrado.getNome() + " removido com sucesso!");
+    }
+
     private void adicionarTurma() {
         System.out.println("Digite o nome da turma: ");
         String nomeTurmas = scanner.nextLine();
@@ -269,6 +332,29 @@ public class Menu {
 
         System.out.println("Alteração bem sucedida! :)");
 
+    }
+
+    // Metodo para remover turma
+    private void removerTurma() {
+        System.out.print("Digite o nome da turma a ser removida: ");
+        String nome = scanner.nextLine();
+
+        Turma turmaEncontrada = null;
+        for (Turma turma : repositorioTurma.listar()) {
+            if (turma.getNomeTurma().equalsIgnoreCase(nome)) {
+                turmaEncontrada = turma;
+                break;
+            }
+        }
+
+        if (turmaEncontrada == null) {
+            System.out.println("Turma não encontrada!");
+            return;
+        }
+
+        // Remover a turma do repositório
+        repositorioTurma.remover(turmaEncontrada);
+        System.out.println("Turma " + turmaEncontrada.getNomeTurma() + " removida com sucesso!");
     }
 
 
@@ -328,6 +414,29 @@ public class Menu {
 
         System.out.println("Alteração bem sucedida! :)");
 
+    }
+
+    // Metodo para remover disciplina
+    private void removerDisciplina() {
+        System.out.print("Digite o nome da disciplina a ser removida: ");
+        String nome = scanner.nextLine();
+
+        Disciplina disciplinaEncontrada = null;
+        for (Disciplina disciplina : repositorioDisciplina.listar()) {
+            if (disciplina.getNome().equalsIgnoreCase(nome)) {
+                disciplinaEncontrada = disciplina;
+                break;
+            }
+        }
+
+        if (disciplinaEncontrada == null) {
+            System.out.println("Disciplina não encontrada!");
+            return;
+        }
+
+        // Remover a disciplina do repositório
+        repositorioDisciplina.remover(disciplinaEncontrada);
+        System.out.println("Disciplina " + disciplinaEncontrada.getNome() + " removida com sucesso!");
     }
 }
 
